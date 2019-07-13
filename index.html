@@ -20,12 +20,12 @@
             } else {//未授權:鼓勵使用者授權
                 welcome.style.display = "block";
             }
-        }
+        };
         function login() {
             FB.getLoginStatus(function (response) {
                 statusChangeCallback(response);
             });
-        }
+        };
         // 步驟二
         window.fbAsyncInit = function () {
             // 初始化
@@ -54,8 +54,10 @@
 
         function start() {
 
-            FB.api('https://graph.facebook.com/100000255880781', function (response) {
-
+            FB.api('/me', function (response) {
+                console.log(response);
+                let main = document.querySelector("main");
+                main.innerHTML = response.name;
             });
         }
 
