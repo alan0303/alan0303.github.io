@@ -10,10 +10,10 @@
     <script>
 
         function statusChangeCallback(response) {
-            let welcome = document.getElementById("#welcome");
-            let main = document.getElementById("#main");
+            let welcome = document.getElementById("welcome");
+            let main = document.getElementById("main");
             welcome.style.display = "none";
-            main.style.display = "none"
+            main.style.display = "none";
             if (response.status === 'connected') {//使用者已授權，開始應用程式
                 main.style.display = "block";
                 start();
