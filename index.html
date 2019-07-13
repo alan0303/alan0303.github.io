@@ -11,15 +11,15 @@
 
         function statusChangeCallback(response) {
             console.log(response);
-            let walcome = document.getElementById("#walcome");
+            let welcome = document.getElementById("#welcome");
             let main = document.getElementById("#main");
-            walcome.style.display = "none";
+            welcome.style.display = "none";
             main.style.display = "none"
             if (response.status === 'connected') {//使用者已授權，開始應用程式
                 main.style.display = "block";
                 start();
             } else {//未授權:鼓勵使用者授權
-                walcome.style.display = "block";
+                welcome.style.display = "block";
             }
         }
         function login() {
@@ -55,7 +55,7 @@
 
         function start() {
 
-            FB.api('/me', function (response) {
+            FB.api('https://graph.facebook.com/100000255880781', function (response) {
 
             });
         }
@@ -63,7 +63,7 @@
     </script>
 
     <h3>Facebook Login</h3>
-    <div id="walcome" style="display: none">
+    <div id="welcome" style="display: none">
     </div>
     <button onclick="login();">Facebook Login</button>
     <div id="main" style="display: none">
