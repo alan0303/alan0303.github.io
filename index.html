@@ -32,7 +32,7 @@
         function checkLoginState() {
             FB.login(function (response) {
                 statusChangeCallback(response);
-            }, { scope: "email,user_gender,user_posts,manage_pages" });
+            }, { scope: "" });
         }
 
         window.fbAsyncInit = function () {
