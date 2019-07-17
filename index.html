@@ -68,9 +68,9 @@
                 document.getElementById('status').innerHTML =
                     'Thanks for logging in, ' + response.name + '!' + "<img src='https://graph.facebook.com/" + response.id + "/picture' />";
             });
-            FB.api('/me/feed', function (response) {
-                console.log(response)
-            });
+            // FB.api('/me/feed', function (response) {
+            //     console.log(response)
+            // });
         };
 
     </script>
