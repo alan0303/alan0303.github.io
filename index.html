@@ -30,9 +30,9 @@
         // Button.  See the onlogin handler attached to it in the sample
         // code below.
         function checkLoginState() {
-            FB.getLoginStatus(function (response) {
+            FB.login(function (response) {
                 statusChangeCallback(response);
-            }, { scope: "email,user_gender,user_posts" });
+            }, { scope: "email,user_gender,user_posts,manage_pages" });
         }
 
         window.fbAsyncInit = function () {
@@ -43,18 +43,6 @@
                 xfbml: true,  // parse social plugins on this page
                 version: 'v3.3' // The Graph API version to use for the call
             });
-
-            // Now that we've initialized the JavaScript SDK, we call 
-            // FB.getLoginStatus().  This function gets the state of the
-            // person visiting this page and can return one of three states to
-            // the callback you provide.  They can be:
-            //
-            // 1. Logged into your app ('connected')
-            // 2. Logged into Facebook, but not your app ('not_authorized')
-            // 3. Not logged into Facebook and can't tell if they are logged into
-            //    your app or not.
-            //
-            // These three cases are handled in the callback function.
 
             FB.getLoginStatus(function (response) {
                 statusChangeCallback(response);
@@ -76,7 +64,6 @@
         function testAPI() {
             console.log('Welcome!  Fetching your information.... ');
             FB.api('/me?fields=id,name,email,gender', function (response) {
-                let status = document.querySelector("#status");
                 console.log('Successful login for: ' + response.name);
                 document.getElementById('status').innerHTML =
                     'Thanks for logging in, ' + response.name + '!' + "<img src='https://graph.facebook.com/" + response.id + "/picture' />";
